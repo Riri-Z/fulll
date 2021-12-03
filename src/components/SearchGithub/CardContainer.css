@@ -1,0 +1,10 @@
+.CardContainer{
+  overflow-x: hidden;
+  width:500px;
+  height:500px;
+}
+
+.Error{
+  width:500px;
+  height:500px;
+}
