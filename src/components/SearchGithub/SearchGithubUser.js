@@ -8,9 +8,11 @@ const SearchGithubUser = () => {
   const [listUsers, setListUsers] = useState([])
   const [error, setError] = useState(false)
 
+  //Fetch github api to get users
   useEffect(() => {
-    (async () => {
+    const handleGitHubFetchApi = async () => {
       setError(false)
+      //Token is not mandatory but without it, user are allowed to do only 10 request per minute
       const token = process.env.REACT_APP_ACCESS_TOKEN
 
       if (inputUser) {
@@ -31,7 +33,8 @@ const SearchGithubUser = () => {
 
       }
 
-    })()
+    }
+    handleGitHubFetchApi()
 
   }, [inputUser])
 

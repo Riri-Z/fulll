@@ -12,21 +12,22 @@ function App() {
     { id: '4', label: 'item 4' },
   ]
 
-  const [isCheckAll, setIsCheckAll] = useState(false)
-  const [isCheck, setIsCheck] = useState([])
+  const [isCheckAll, setIsCheckAll] = useState(false) //handle state "select All"
+  const [isCheck, setIsCheck] = useState([]) //handle others checkbox
 
 
   useEffect(() => {
     if (items) setIsCheckAll(isCheck.length === items.length)
   }, [isCheck])      // eslint-disable-line react-hooks/exhaustive-deps
 
-
+  //handle event from selectAll checkbox
   const handleSelectAll = e => {
     setIsCheckAll(!isCheckAll)
     setIsCheck(items.map(i => i.id))
     isCheckAll && setIsCheck([])
   }
 
+  //handle event from others checkbox
   const handleClick = e => {
     const { id, checked } = e.target
     let newChecked = [...isCheck, id]
